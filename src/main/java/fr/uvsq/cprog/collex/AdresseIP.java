@@ -14,4 +14,9 @@ public class AdresseIP {
     public String getAdresseIPV4() {
         return this.adresseIPV4;
     }
+    @Override
+    public String toString() {
+        return adresseIPV4;  
+    }
+
 }
