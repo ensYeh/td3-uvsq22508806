@@ -29,11 +29,11 @@ public class Dns {
         if (chemin == null) {
             throw new IOException("Clé '" + dns + "' introuvable dans config.properties");
         }
-        Path dataDir = Paths.get("target", "data"); 
+        Path dataDir = Paths.get("target", "data");
         if (!Files.exists(dataDir)) {
             Files.createDirectories(dataDir);
         }
-        this.fichierBase = dataDir.resolve(chemin + ".txt"); 
+        this.fichierBase = dataDir.resolve(chemin + ".txt");
         if (!Files.exists(fichierBase)) {
             System.out.println("Fichier " + fichierBase + " introuvable, création d’un nouveau fichier vide.");
             Files.createFile(fichierBase);
@@ -86,7 +86,13 @@ public class Dns {
     public List<DnsItem> getItemsSortedByIp(String domaine) {
         return parNom.values().stream()
                 .filter(i -> i.getNom().getDomaine().equals(domaine))
-                .sorted(Comparator.comparing(i -> i.getIp().getAdresseIPV4()))
+                .sorted(Comparator.comparingInt(i -> {
+                    String[] parts = i.getIp().getAdresseIPV4().split("\\.");
+                    return (Integer.parseInt(parts[0]) << 24)
+                            | (Integer.parseInt(parts[1]) << 16)
+                            | (Integer.parseInt(parts[2]) << 8)
+                            | Integer.parseInt(parts[3]);
+                }))
                 .collect(Collectors.toList());
     }
 
@@ -100,7 +106,7 @@ public class Dns {
         parIp.put(ip, item);
         parNom.put(nom, item);
 
-        sauvegarder(item); 
+        sauvegarder(item);
     }
 
     private void sauvegarder(DnsItem item) throws IOException {
