@@ -29,11 +29,11 @@ public class Dns {
         if (chemin == null) {
             throw new IOException("Clé '" + dns + "' introuvable dans config.properties");
         }
-        Path dataDir = Paths.get("target", "data"); // dossier modifiable
+        Path dataDir = Paths.get("target", "data"); 
         if (!Files.exists(dataDir)) {
             Files.createDirectories(dataDir);
         }
-        this.fichierBase = dataDir.resolve(chemin + ".txt"); // créer un fichier .txt avec le nom du dns
+        this.fichierBase = dataDir.resolve(chemin + ".txt"); 
         if (!Files.exists(fichierBase)) {
             System.out.println("Fichier " + fichierBase + " introuvable, création d’un nouveau fichier vide.");
             Files.createFile(fichierBase);
