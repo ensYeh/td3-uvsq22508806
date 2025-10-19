@@ -3,9 +3,9 @@ package fr.uvsq.cprog.collex;
 import java.io.IOException;
 
 public class AjouterItem implements Commande {
-    private final Dns dns;
-    private final AdresseIP AdresseIpv4;
-    private final NomMachine nom;
+    private Dns dns;
+    private AdresseIP AdresseIpv4;
+    private NomMachine nom;
 
     public AjouterItem(Dns d, AdresseIP ip, NomMachine n) {
         this.dns = d;

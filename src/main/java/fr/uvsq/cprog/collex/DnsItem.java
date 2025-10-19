@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class DnsItem {
 
-    private final AdresseIP adresseIPV4;
-    private final NomMachine nom;
+    private  AdresseIP adresseIPV4;
+    private  NomMachine nom;
 
     public DnsItem(AdresseIP ip, NomMachine n) {
         this.adresseIPV4 = ip;
