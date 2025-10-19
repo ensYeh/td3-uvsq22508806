@@ -1,5 +1,7 @@
 package fr.uvsq.cprog.collex;
 
+import java.util.Objects;
+
 public class AdresseIP {
     private String adresseIPV4;
 
@@ -14,9 +16,25 @@ public class AdresseIP {
     public String getAdresseIPV4() {
         return this.adresseIPV4;
     }
+
     @Override
     public String toString() {
-        return adresseIPV4;  
+        return adresseIPV4;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof AdresseIP))
+            return false;
+        AdresseIP other = (AdresseIP) o;
+        return adresseIPV4.equals(other.adresseIPV4);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(adresseIPV4);
     }
 
 }

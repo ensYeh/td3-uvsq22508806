@@ -1,5 +1,7 @@
 package fr.uvsq.cprog.collex;
 
+import java.util.Objects;
+
 public class NomMachine {
 
     private String nom;
@@ -31,6 +33,22 @@ public class NomMachine {
 
     @Override
     public String toString() {
-        return NomQualifie(); 
+        return NomQualifie();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof NomMachine))
+            return false;
+        NomMachine other = (NomMachine) o;
+        return nom.equals(other.nom) && domaine.equals(other.domaine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, domaine);
+    }
+
 }
