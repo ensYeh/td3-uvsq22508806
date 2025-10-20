@@ -15,7 +15,7 @@ public class RechercheIPTest {
 
     @BeforeClass
     public static void setupClass() throws IOException {
-        dataDir = Paths.get("target", "data");
+        dataDir = Paths.get( "data");
         if (!Files.exists(dataDir)) {
             Files.createDirectories(dataDir);
         }

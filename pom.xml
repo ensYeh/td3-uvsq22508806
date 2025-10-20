@@ -73,6 +73,14 @@
     </pluginManagement>
      <plugins>
      <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>3.6.2</version>
+      <configuration>
+        <mainClass>fr.uvsq.cprog.collex.DnsApp</mainClass>
+      </configuration>
+     </plugin>
+     <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-checkstyle-plugin</artifactId>
             <version>3.2.2</version>

@@ -15,10 +15,10 @@ public class AjouterItem implements Commande {
 
     @Override
     public void execute() {
-        try {
-            dns.addItem(AdresseIpv4, nom);
-        } catch (IOException | IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+         try {
+             dns.addItem(AdresseIpv4, nom);
+         } catch (IOException | IllegalArgumentException e) {
+             System.out.println(e.getMessage());
+         }
     }
 }
