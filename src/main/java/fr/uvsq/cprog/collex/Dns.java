@@ -29,7 +29,7 @@ public class Dns {
         if (chemin == null) {
             throw new IOException("Clé '" + dns + "' introuvable dans config.properties");
         }
-        Path dataDir = Paths.get("target", "data");
+        Path dataDir = Paths.get("data");
         if (!Files.exists(dataDir)) {
             Files.createDirectories(dataDir);
         }
